@@ -13,6 +13,7 @@ import './App.css';
 import Manager from '../Manager/Manager';
 import Activity from '../Activity/Activity';
 import userService from '../../services/userService'
+import PlainButton from '../../components/Buttons/PlainButton';
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -36,6 +37,7 @@ const App = () => {
       // These routes will render the NavBar
       return (
         <>
+        <PlainButton />
           <NavBar user={user} handleLogout={handleLogout}/>
           <Route exact path="/activities" render={() => <IndexActivities />} />
           <Route exact path="/manager-dashboard" render={() => <Manager />} />
@@ -43,17 +45,17 @@ const App = () => {
             exact
             path="/preview-activity"
             render={({ location }) => <PreviewActivity location={location} />}
-          />
+            />
           <Route
             exact
             path="/activity/heuristics"
             render={() => <Activity user={user} activityId="6009f75ea00e3f38a7c65c7d" />}
-          />
+            />
           <Route
             exact
             path="/activity/accessibility"
             render={() => <Activity user={user} />}
-          />
+            />
         </>
       );
     };
@@ -64,8 +66,9 @@ const App = () => {
           exact
           path="/"
           render={() => (!user ? <User user={user} /> : <Landing />)}
-        />
+          />
 
+  
         <Route
           path="/signup/:groupId?/:email?"
           render={({ history, match }) => (

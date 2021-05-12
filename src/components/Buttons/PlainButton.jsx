@@ -33,6 +33,7 @@ const PlainBtn = styled.button`
     text-align: center;
     border-radius: 0;
     border: 1px solid #3C8582;
+    text-decoration-line: underline;
     width: 71px;
     height: 18px;
     outline: none;
